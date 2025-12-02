@@ -2,16 +2,7 @@
 """
 Created on Tue Dec  2 03:12:51 2025
 
-@author: callu
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Dec  2 02:19:59 2025
-
-@author: callu
-
-int minPos = 0, str upDir = 'R', str downDir = 'L', int zero_count = 0):
+@author: Callum
 """
 
 #safe object, pointer, list, counter
@@ -27,12 +18,10 @@ class safeObject:
     def rotateUp(self, n_degrees: int):
         self.currentPos = self.currentPos + n_degrees
         self.checkMax()
-        # self.checkZero()
         
     def rotateDown(self, n_degrees: int):
         self.currentPos = self.currentPos - n_degrees
         self.checkMin()
-        # self.checkZero()
     
     def checkMax(self):
         if self.currentPos > self.maxPos:
@@ -106,7 +95,7 @@ elfSafe.get_pass()
 #ingest input
 print("\n\n\nProper Run !")
 
-f = open('./day_zero_insructions.txt')
+f = open('./day_one_insructions.txt')
 fullRun = f.read()
 
 elfSafe = safeObject()

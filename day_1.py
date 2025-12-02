@@ -2,9 +2,7 @@
 """
 Created on Tue Dec  2 02:19:59 2025
 
-@author: callu
-
-int minPos = 0, str upDir = 'R', str downDir = 'L', int zero_count = 0):
+@author: Callum
 """
 
 #safe object, pointer, list, counter
