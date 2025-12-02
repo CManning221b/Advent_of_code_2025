@@ -107,8 +107,8 @@ class MultiRangeIDvalidator():
     
     
 
-validator = SingleRangeIDValidator(95, 115)     
-validator.runRegion ()   
+# validator = SingleRangeIDValidator(95, 115)     
+# validator.runRegion ()   
 
 # multiValidator = MultiRangeIDvalidator('./day_2_test.txt')
 # multiValidator.runAll()        
