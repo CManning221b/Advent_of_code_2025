@@ -33,7 +33,7 @@ class SingleRangeIDValidator():
             #check new min not bigger than old max
     
     def shiftHighest(self):
-        highLength = len(str(self.minNum))
+        highLength = len(str(self.mzxNum))
         if highLength%2 != 0:
             newMax = (10**highLength) - 1
             self.maxNum = newMax
