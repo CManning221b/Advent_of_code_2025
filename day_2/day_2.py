@@ -56,7 +56,7 @@ class SingleRangeIDValidator():
             genBase = str(int(genBase)+1)
         return candidateLst
     
-    def runReigon(self):
+    def runRegion (self):
         print(f'The intial min number is {self.minNum}')
         self.shiftLowest()
         print(f'The shifted min number is {self.minNum}')
@@ -68,14 +68,14 @@ class SingleRangeIDValidator():
         return self.validIdLst
 
 #Open the file 
-#Get a list of comma seperated reigons
+#Get a list of comma seperated region s
 
 class MultiRangeIDvalidator():
     def __init__(self, filePath: str, validIdLst: List = []):
         self.filePath = filePath
         self.validIdLst = validIdLst
         self.runningTotal = sum(self.validIdLst)
-        self.reigonLst = []
+        self.region Lst = []
         
     def processLine(self, line: str):
         minN, maxN = line.split('-')
@@ -83,22 +83,22 @@ class MultiRangeIDvalidator():
     
     def processList(self, lst: str):
         for l in lst.split(','):
-            self.reigonLst.append(self.processLine(l))
+            self.region Lst.append(self.processLine(l))
     
     def processFile(self):
         with open(self.filePath) as f:
             self.processList(f.read())
         
-    def runReigon(self, reigonTuple: Tuple[int, int]):
-        validator = SingleRangeIDValidator(reigonTuple[0], reigonTuple[1], self.validIdLst)
-        self.validIdLst = validator.runReigon()
+    def runRegion (self, region Tuple: Tuple[int, int]):
+        validator = SingleRangeIDValidator(region Tuple[0], region Tuple[1], self.validIdLst)
+        self.validIdLst = validator.runRegion ()
         self.runningTotal = sum(self.validIdLst)
     
     def runAll(self):
         self.processFile()
-        for reigonTuple in self.reigonLst:
-            print(f'Running Validator for range {reigonTuple}')
-            self.runReigon(reigonTuple)
+        for region Tuple in self.region Lst:
+            print(f'Running Validator for range {region Tuple}')
+            self.runRegion (region Tuple)
             print('\n\n\n')
         print(f'Final Valid List is {self.validIdLst}')
         print(f'The running total is {self.runningTotal}')
@@ -108,7 +108,7 @@ class MultiRangeIDvalidator():
     
 
 validator = SingleRangeIDValidator(95, 115)     
-validator.runReigon()   
+validator.runRegion ()   
 
 # multiValidator = MultiRangeIDvalidator('./day_2_test.txt')
 # multiValidator.runAll()        
