@@ -95,7 +95,7 @@ elfSafe.get_pass()
 #ingest input
 print("\n\n\nProper Run !")
 
-f = open('./day_zero_insructions.txt')
+f = open('./day_one_insructions.txt')
 fullRun = f.read()
 
 elfSafe = safeObject()
