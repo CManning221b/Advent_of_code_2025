@@ -30,37 +30,37 @@ class SingleRangeIDValidatorModified(SingleRangeIDValidator):
         return list(combinedList)
         
     
-    def genSubLists(self, number: int, factor: int, canidateList: List = []):
-        subCanidateLst = []
-        currentCanidate = 0
+    def genSubLists(self, number: int, factor: int, candidateList: List = []):
+        subCandidateLst = []
+        currentCandidate = 0
         splitSize = int(len(str(number))/factor)
         partlist = list(map(''.join, zip(*[iter(str(number))]*splitSize)))#
         if len(partlist)>0:
             genBase = partlist[0]
-            while currentCanidate <= self.maxNum:
-                if currentCanidate != 0 and currentCanidate >= self.minNum and currentCanidate not in canidateList:
-                    print(f'Adding canidate {currentCanidate}')
-                    subCanidateLst.append(currentCanidate)
-                currentCanidate = int(genBase*factor)
+            while currentCandidate <= self.maxNum:
+                if currentCandidate != 0 and currentCandidate >= self.minNum and currentCandidate not in candidateList:
+                    print(f'Adding candidate {currentCandidate}')
+                    subCandidateLst.append(currentCandidate)
+                currentCandidate = int(genBase*factor)
                 genBase = str(int(genBase)+1)
-        return subCanidateLst
+        return subCandidateLst
                 
         
-    def genCanidateLst(self):
-        canidateLst = []
+    def genCandidateLst(self):
+        candidateLst = []
         factors = self.getCombinedFactors()
         for factor in factors:
-            subList = self.genSubLists(self.minNum, factor, canidateLst)
-            canidateLst.extend(subList)
-            subList = self.genSubLists(self.maxNum, factor, canidateLst)
-            canidateLst.extend(subList)
-        return canidateLst
+            subList = self.genSubLists(self.minNum, factor, candidateLst)
+            candidateLst.extend(subList)
+            subList = self.genSubLists(self.maxNum, factor, candidateLst)
+            candidateLst.extend(subList)
+        return candidateLst
        
     
     def runReigon(self):
         print(f'Checking reigon between {self.minNum} and {self.maxNum}')
-        canidates = self.genCanidateLst()
-        self.validIdLst.extend(canidates)
+        candidates = self.genCandidateLst()
+        self.validIdLst.extend(candidates)
         self.runningTotal = sum(self.validIdLst)
         print(f'The validated list is {self.validIdLst}')
         print(f'The running total is {self.runningTotal}')
@@ -77,14 +77,14 @@ class MultiRangeIDvalidatorModified(MultiRangeIDvalidator):
     
     
 
-# validator = SingleRangeIDValidatorModified(95, 115)     
-# validator.runReigon()   
+validator = SingleRangeIDValidatorModified(95, 115)     
+validator.runReigon()   
 
-# multiValidator = MultiRangeIDvalidatorModified('./day_2_test.txt')
-# multiValidator.runAll()        
+# # multiValidator = MultiRangeIDvalidatorModified('./day_2_test.txt')
+# # multiValidator.runAll()        
             
-multiValidator = MultiRangeIDvalidatorModified('./day_2_input.txt')
-multiValidator.runAll()  
+# multiValidator = MultiRangeIDvalidatorModified('./day_2_input.txt')
+# multiValidator.runAll()  
 
 
       

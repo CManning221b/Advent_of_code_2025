@@ -40,7 +40,7 @@ class SingleRangeIDValidator():
             #Probably don't need this
             
     def genCanidateLst(self):
-        canidateLst = []
+        candidateLst = []
         lowLength = len(str(self.minNum))
         if lowLength%2 != 0:
             print("Valid IDs must have even number of digits")
@@ -50,19 +50,19 @@ class SingleRangeIDValidator():
         genBase = str(self.minNum)[:(splt)]
         while currentCanidate <= self.maxNum:
             if currentCanidate != 0 and currentCanidate >= self.minNum:
-                print(f'Adding canidate {currentCanidate}')
-                canidateLst.append(currentCanidate)
+                print(f'Adding candidate {currentCanidate}')
+                candidateLst.append(currentCanidate)
             currentCanidate = int(genBase + genBase)
             genBase = str(int(genBase)+1)
-        return canidateLst
+        return candidateLst
     
     def runReigon(self):
         print(f'The intial min number is {self.minNum}')
         self.shiftLowest()
         print(f'The shifted min number is {self.minNum}')
         if self.minNum < self.maxNum:
-            canidates = self.genCanidateLst()
-            self.validIdLst.extend(canidates)
+            candidates = self.genCanidateLst()
+            self.validIdLst.extend(candidates)
             self.runningTotal = sum(self.validIdLst)
             print(self.runningTotal)
         return self.validIdLst
@@ -107,8 +107,8 @@ class MultiRangeIDvalidator():
     
     
 
-# validator = SingleRangeIDValidator(1188511880, 1188511890)     
-# validator.runReigon()   
+validator = SingleRangeIDValidator(95, 115)     
+validator.runReigon()   
 
 # multiValidator = MultiRangeIDvalidator('./day_2_test.txt')
 # multiValidator.runAll()        
