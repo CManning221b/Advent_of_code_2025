@@ -57,8 +57,8 @@ class SingleRangeIDValidatorModified(SingleRangeIDValidator):
         return candidateLst
        
     
-    def runReigon(self):
-        print(f'Checking reigon between {self.minNum} and {self.maxNum}')
+    def runRegion(self):
+        print(f'Checking region between {self.minNum} and {self.maxNum}')
         candidates = self.genCandidateLst()
         self.validIdLst.extend(candidates)
         self.runningTotal = sum(self.validIdLst)
@@ -68,9 +68,9 @@ class SingleRangeIDValidatorModified(SingleRangeIDValidator):
 
 class MultiRangeIDvalidatorModified(MultiRangeIDvalidator):
     
-    def runReigon(self, reigonTuple: Tuple[int, int]):
-        validator = SingleRangeIDValidatorModified(reigonTuple[0], reigonTuple[1], self.validIdLst)
-        self.validIdLst = validator.runReigon()
+    def runRegion(self, regionTuple: Tuple[int, int]):
+        validator = SingleRangeIDValidatorModified(regionTuple[0], regionTuple[1], self.validIdLst)
+        self.validIdLst = validator.runRegion()
         self.runningTotal = sum(self.validIdLst)
         print(self.validIdLst)
         
@@ -78,7 +78,7 @@ class MultiRangeIDvalidatorModified(MultiRangeIDvalidator):
     
 
 validator = SingleRangeIDValidatorModified(95, 115)     
-validator.runReigon()   
+validator.runRegion()   
 
 # # multiValidator = MultiRangeIDvalidatorModified('./day_2_test.txt')
 # # multiValidator.runAll()        
