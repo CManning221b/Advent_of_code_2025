@@ -14,10 +14,10 @@ from day_2 import SingleRangeIDValidator, MultiRangeIDvalidator
 class SingleRangeIDValidatorModified(SingleRangeIDValidator):
    
     # We need to now take the factors of the length of the number, 
-    # not including itself or 1
+    # not including 1
     # Go from largest to lowest factor
-    # For each set of factors, start at lowest numver and repeat
-    # Heading up towars max
+    # For each set of factors, start at lowest number and repeat previous generation
+    # Heading up towards max
     
     def getFactors(self, n: int):
         return set(reduce(list.__add__,([i, n//i] for i in range(1, int(n**0.5) + 1) if n % i == 0)))
