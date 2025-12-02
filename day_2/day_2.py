@@ -75,7 +75,7 @@ class MultiRangeIDvalidator():
         self.filePath = filePath
         self.validIdLst = validIdLst
         self.runningTotal = sum(self.validIdLst)
-        self.region Lst = []
+        self.regionLst = []
         
     def processLine(self, line: str):
         minN, maxN = line.split('-')
@@ -83,22 +83,22 @@ class MultiRangeIDvalidator():
     
     def processList(self, lst: str):
         for l in lst.split(','):
-            self.region Lst.append(self.processLine(l))
+            self.regionLst.append(self.processLine(l))
     
     def processFile(self):
         with open(self.filePath) as f:
             self.processList(f.read())
         
-    def runRegion (self, region Tuple: Tuple[int, int]):
-        validator = SingleRangeIDValidator(region Tuple[0], region Tuple[1], self.validIdLst)
+    def runRegion (self, regionTuple: Tuple[int, int]):
+        validator = SingleRangeIDValidator(regionTuple[0], regionTuple[1], self.validIdLst)
         self.validIdLst = validator.runRegion ()
         self.runningTotal = sum(self.validIdLst)
     
     def runAll(self):
         self.processFile()
-        for region Tuple in self.region Lst:
-            print(f'Running Validator for range {region Tuple}')
-            self.runRegion (region Tuple)
+        for regionTuple in self.regionLst:
+            print(f'Running Validator for range {regionTuple}')
+            self.runRegion (regionTuple)
             print('\n\n\n')
         print(f'Final Valid List is {self.validIdLst}')
         print(f'The running total is {self.runningTotal}')

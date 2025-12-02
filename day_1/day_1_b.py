@@ -57,18 +57,18 @@ elfSafe.get_pass()
 
 #run
 #ingest input
-print("\n\n\nProper Run !")
+# print("\n\n\nProper Run !")
 
-with open('./day_one_insructions.txt') as f:
-    fullRun = f.read()
+# with open('./day_one_insructions.txt') as f:
+#     fullRun = f.read()
 
-elfSafe = safeObjectModified()
-elfSafe.summary()
+# elfSafe = safeObjectModified()
+# elfSafe.summary()
 
-for l in fullRun.splitlines():
-    elfSafe.readLine(l)
+# for l in fullRun.splitlines():
+#     elfSafe.readLine(l)
 
-elfSafe.summary()
-elfSafe.get_pass()
+# elfSafe.summary()
+# elfSafe.get_pass()
 
 
