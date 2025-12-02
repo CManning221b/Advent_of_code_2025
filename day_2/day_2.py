@@ -86,8 +86,8 @@ class MultiRangeIDvalidator():
             self.reigonLst.append(self.processLine(l))
     
     def processFile(self):
-        f = open(self.filePath)
-        self.processList(f.read())
+        with open(self.filePath) as f:
+            self.processList(f.read())
         
     def runReigon(self, reigonTuple: Tuple[int, int]):
         validator = SingleRangeIDValidator(reigonTuple[0], reigonTuple[1], self.validIdLst)
