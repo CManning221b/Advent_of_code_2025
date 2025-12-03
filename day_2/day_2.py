@@ -19,10 +19,10 @@ from typing import List, Tuple
 
 # Single Range Class ID Validator - Treat it like an adder, take the overflow !
 class SingleRangeIDValidator():
-    def __init__(self, minNum: int, maxNum: int, validIdLst: List = []):
+    def __init__(self, minNum: int, maxNum: int, validIdLst: List = None):
         self.minNum = minNum
         self.maxNum = maxNum
-        self.validIdLst = validIdLst
+        self.validIdLst = validIdLst if validIdLst else []
         self.runningTotal = sum(self.validIdLst)
     
     def shiftLowest(self):
@@ -30,29 +30,29 @@ class SingleRangeIDValidator():
         if lowLength%2 != 0:
             newMin = 10**(lowLength)
             self.minNum = newMin
-            #check new min not bigger than old max
-    
+           
+    # Probably don't need this
     def shiftHighest(self):
         highLength = len(str(self.maxNum))
         if highLength%2 != 0:
             newMax = (10**highLength) - 1
             self.maxNum = newMax
-            #Probably don't need this
             
-    def genCanidateLst(self):
+            
+    def genCandidateLst(self):
         candidateLst = []
         lowLength = len(str(self.minNum))
         if lowLength%2 != 0:
             print("Valid IDs must have even number of digits")
             return []
-        currentCanidate = 0
+        currentCandidate = 0
         splt = int(lowLength/2)
         genBase = str(self.minNum)[:(splt)]
-        while currentCanidate <= self.maxNum:
-            if currentCanidate != 0 and currentCanidate >= self.minNum:
-                print(f'Adding candidate {currentCanidate}')
-                candidateLst.append(currentCanidate)
-            currentCanidate = int(genBase + genBase)
+        while currentCandidate <= self.maxNum:
+            if currentCandidate != 0 and currentCandidate >= self.minNum:
+                print(f'Adding candidate {currentCandidate}')
+                candidateLst.append(currentCandidate)
+            currentCandidate = int(genBase + genBase)
             genBase = str(int(genBase)+1)
         return candidateLst
     
@@ -61,7 +61,7 @@ class SingleRangeIDValidator():
         self.shiftLowest()
         print(f'The shifted min number is {self.minNum}')
         if self.minNum < self.maxNum:
-            candidates = self.genCanidateLst()
+            candidates = self.genCandidateLst()
             self.validIdLst.extend(candidates)
             self.runningTotal = sum(self.validIdLst)
             print(self.runningTotal)
@@ -71,9 +71,9 @@ class SingleRangeIDValidator():
 #Get a list of comma seperated region s
 
 class MultiRangeIDvalidator():
-    def __init__(self, filePath: str, validIdLst: List = []):
+    def __init__(self, filePath: str, validIdLst: List = None):
         self.filePath = filePath
-        self.validIdLst = validIdLst
+        self.validIdLst = validIdLst if validIdLst else []
         self.runningTotal = sum(self.validIdLst)
         self.regionLst = []
         
@@ -107,8 +107,8 @@ class MultiRangeIDvalidator():
     
     
 
-# validator = SingleRangeIDValidator(95, 115)     
-# validator.runRegion ()   
+validator = SingleRangeIDValidator(95, 115)     
+validator.runRegion ()   
 
 # multiValidator = MultiRangeIDvalidator('./day_2_test.txt')
 # multiValidator.runAll()        
