@@ -15,3 +15,6 @@ Was late getting to this one, but maybe my favourite day so far. Matrices, kerne
 
 ### Day five 07.12.2025 @ 06:00
 Busy couple of days and I've fallen behind once more. Fairly simple, tried brute forcing this at first to rush it, then had to find a way to merge the lists
+
+### Day six 08.12.2025 @ 05:43
+I completed day 6 ! Wasn't going to, but it was a fairly straightforward bit of string manipulation, so all in all in only took about an hour. 
