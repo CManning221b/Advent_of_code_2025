@@ -12,3 +12,6 @@ The first part of this was astonishingly easy, the second part took up an embarr
 
 ### Day four 05.12.2025 @ 12:00
 Was late getting to this one, but maybe my favourite day so far. Matrices, kernels and filtering ! What a fun little challenge. 
+
+### Day five 07.12.2025 @ 06:00
+Busy couple of days and I've fallen behind once more. Fairly simple, tried brute forcing this at first to rush it, then had to find a way to merge the lists
