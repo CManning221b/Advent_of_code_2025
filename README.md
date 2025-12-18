@@ -22,3 +22,6 @@ I completed day 6 ! Wasn't going to, but it was a fairly straightforward bit of 
 ### Day seven 10.12.2025 @ 0100
 I feel like this should have been fast, but it ended up taking wayyy too long as I chased tiny errors in modifications to the array while looping through.
 
+### Day eight 18.12.2025 @ 0400
+This one probably took the longest, hadn't tried KD-trees before and then it turned out that was probably the wrong solution and I had to adjust. Also plotting was surprisingly fiddly but I was keen to get an interactive plot, and to illustrate the tree partitions. 
+
