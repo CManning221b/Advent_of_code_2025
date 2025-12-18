@@ -18,3 +18,7 @@ Busy couple of days and I've fallen behind once more. Fairly simple, tried brute
 
 ### Day six 08.12.2025 @ 05:43
 I completed day 6 ! Wasn't going to, but it was a fairly straightforward bit of string manipulation, so all in all in only took about an hour. 
+
+### Day seven 10.12.2025 @ 0100
+I feel like this should have been fast, but it ended up taking wayyy too long as I chased tiny errors in modifications to the array while looping through.
+
